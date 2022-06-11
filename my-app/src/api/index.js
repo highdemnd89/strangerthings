@@ -15,7 +15,7 @@ export const fetchUserInfo = async (localToken) => {
 
 export async function registerUser (username, password){
     try { 
-      const {data} = await fetch(`${API_URL}/users/register`,{ 
+      const response = await fetch(`${API_URL}/users/register`,{ 
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({ user: { 
@@ -23,12 +23,10 @@ export async function registerUser (username, password){
         password: password
       } })
       
-    }).then(response => response.json())
-    .then(result => {
-      console.log(result)
-
     })
-      
+     const UnpackedResponse = await response.json()
+     return UnpackedResponse.data
+      console.log(" This is what is looks like",UnpackedResponse)
     } catch (error) { 
       console.log(error)
   }

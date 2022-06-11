@@ -30,12 +30,12 @@ const AccountForm = ({ action, setToken, setUserData }) => {
       <form 
       
       onSubmit={async (event) =>{
-        event.default () 
+        event.preventDefault() 
         try {
           
-          const {data}= await registerUser(username, password)
+          const result = await registerUser(username, password)
         
-          storeToken(data.token)
+          storeToken(result.data.token)
           storeUser(username)
           setUsername("")
           setPassword("")
