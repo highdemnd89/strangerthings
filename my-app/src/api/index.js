@@ -25,8 +25,8 @@ export async function registerUser (username, password){
       
     })
      const UnpackedResponse = await response.json()
+     console.log(" This is what is looks like",UnpackedResponse)
      return UnpackedResponse.data
-      console.log(" This is what is looks like",UnpackedResponse)
     } catch (error) { 
       console.log(error)
   }

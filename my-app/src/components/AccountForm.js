@@ -34,8 +34,8 @@ const AccountForm = ({ action, setToken, setUserData }) => {
         try {
           
           const result = await registerUser(username, password)
-        
-          storeToken(result.data.token)
+        console.log(result)
+          storeToken(result.token)
           storeUser(username)
           setUsername("")
           setPassword("")
